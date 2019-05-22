@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <% include ../partials/header %>
+
+   <script>
+       function validateForm(){
+           const price = ducument.forms["insertForm"]["price"].value;
+           if(!parseFloat(price)){
+               alert("Price should be a number");
+               return false;
+           }
+           return true;
+       }
+   </script>
+
+    <title>Update Book</title>
+  </head>
+
+  <body>
+      <div class="container">
+          <h1>Update Book</h1>
+          <br>
+          <form action="/admin/update" method="POST" id="insertForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                  <label for="image">Image</label>
+                  <input type="text" class="form-control" name="image" id="image"
+                  placeholder="Choose an image in server" value="<%=book.image%>">
+                </div>
+                <div class="form-group">
+                    <label for="title">Image</label>
+                    <input type="text" class="form-control" name="title" id="title"
+                    placeholder="Enter title of book" value="<%=book.title%>">
+                </div>
+                <div class="form-group">
+                        <label for="price">Image</label>
+                        <input type="text" class="form-control" name="price" id="price"
+                        placeholder="Enter price of book" value="<%=book.price%>">
+                </div>
+                <div class="form-group">
+                        <label for="description">Image</label>
+                        <textarea class="form-control" name="description" id="description"
+                        rows="3"><%=book.description%></textarea>
+                </div>
+                <input type="hidden" name="_id" value="<%=book._id%>">
+                <button type="submit" class="btn btn-danger">Submit</button>
+          </form>
+      </div>
+      <% include ../partials/scripts %>
+</body>
+</html>

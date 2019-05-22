@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <% include ./partials/header %>
+   <style style = "background-color:black;">
+     body{
+       background-color:black
+     }
+   </style>
+    <title>Movies</title>
+  </head>
+  <body>
+    <div class = "jumbotron">
+        <h1 class = "display-4">Movies Playing Now!</h1>
+        <h1 class = "display-6">Fagan Theaters, 111 Funny Lane</h1>
+        <div class="container">
+            <a href="/showcart" class="btn btn-primary">Show Ticket Purchases</a>
+                <div class="row" style = "background-color:black;">
+                    <% for(const book of books){ %>
+                  <div class="col-sm" style = "background-color:black;">
+                        <div class="card" style="width: 18rem;background-color:rgb(0, 255, 221);">
+                                <img src="/public/images/<%=book.image%>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">
+                                    <%= book.title%>
+                                  </h5>
+                                  <p class="card-text">
+                                    <%= book.description%><br>
+                                    <%= utils.dollar.format(book.price)%>
+                                  </p>
+                                  <form action='/add2cart' method="POST">
+                                    <input type="hidden" name="_id" value="<%= book._id%>">
+                                    <input type="hidden" name="title" value="<%= book.title%>">
+                                    <input type="hidden" name="price" value="<%= book.price%>">
+                                    <button type="submit" class="btn btn-primary">Purchase Ticket</button>
+                                </form>
+                                </div>
+                              </div>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+              <% if(user != null){ %>
+              <% if(user.admin){ %>
+                <a href="/admin/home" class="btn btn-primary" role="button">Admin Page</a>
+                <% }} %>
+    </div>
+
+    <% include ./partials/scripts %>
+ </body>
+</html>

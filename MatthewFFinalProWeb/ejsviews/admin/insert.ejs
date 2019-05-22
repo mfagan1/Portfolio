@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <% include ../partials/header %>
+
+   <script>
+       function validateForm(){
+           const price = ducument.forms["insertForm"]["price"].value;
+           if(!parseFloat(price)){
+               alert("Price should be a number");
+               return false;
+           }
+           return true;
+       }
+   </script>
+
+    <title>Insert Movie</title>
+  </head>
+
+<body>
+    <div class="container">
+        <h1>Insert a new book</h1>
+        <br>
+        <form action="/admin/insert" method="POST" id="insertForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" class="form-control" name="image" id="image" placeholder="Choose an image in server">
+            </div>
+            <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Enter title of Movie">
+            </div>
+            <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" name="price" id="price" placeholder="Enter price of Movie>
+            </div>
+            <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <% include ../partials/scripts %>
+</body>
+</html>
