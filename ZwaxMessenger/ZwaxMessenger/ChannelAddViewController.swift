@@ -1,10 +1,6 @@
 //
 //  ChannelAddViewController.swift
 //  ZwaxMessenger
-//
-//  Created by Ryden Neal on 4/11/19.
-//  Copyright © 2019 Ryden Neal. All rights reserved.
-//
 
 
 import UIKit
