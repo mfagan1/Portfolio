@@ -1,10 +1,6 @@
 //
 //  Channel.swift
 //  ZwaxMessenger
-//
-//  Created by Ryden Neal on 3/28/19.
-//  Copyright © 2019 Ryden Neal. All rights reserved.
-//
 
 import Foundation
 import Firebase
