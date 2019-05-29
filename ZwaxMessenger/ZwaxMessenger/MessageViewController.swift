@@ -1,10 +1,6 @@
 //
 //  HistoryViewController.swift
 //  ZwaxMessenger
-//
-//  Created by Kevin Hoffmeister on 3/10/19.
-//  Copyright © 2019 Ryden Neal. All rights reserved.
-//
 
 import UIKit
 import Firebase
