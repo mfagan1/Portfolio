@@ -1,10 +1,7 @@
 //
 //  ChannelsViewController.swift
 //  ZwaxMessenger
-//
-//  Created by Ryden Neal on 3/14/19.
-//  Copyright © 2019 Ryden Neal. All rights reserved.
-//
+
 
 import UIKit
 import FirebaseFirestore
