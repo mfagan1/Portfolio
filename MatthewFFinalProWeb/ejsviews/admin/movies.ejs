@@ -1,0 +1,43 @@
+!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <% include ../partials/header %>
+    <title>Movies to use List</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Movies to Use</h1><br>
+        <a href="/admin/home" class="btn btn-primary" role="button">Return to Admin Home</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(const image of images) { %>
+                <tr>
+                    <td>
+                        <img src="/public/images/<%= image.filename%>" height="50" width="50">
+                    </td>
+                    <td><%=image.filename %></td>
+                    <td>
+                        <form action="/admin/deleteImage" method="POST">
+                            <input type="hidden" name="_id" value=<%=image._id%>>
+                            <input type="hidden" name="filename" value=<%=image.filename%>>
+                            <button type="submit">DEL</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <% include ../partials/scripts %>
+  </body>
+</html>

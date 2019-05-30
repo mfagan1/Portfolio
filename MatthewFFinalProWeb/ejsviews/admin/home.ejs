@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <% include ../partials/header %>
+    <title>Admin's Home</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Admin's Home</h1><br>
+        <a href="/admin/insert" class="btn btn-primary" role="button">Update a Theater</a>
+        <a href="/admin/imageUpload" class="btn btn-primary" role="button">Insert a Movie</a>
+        <a href="/admin/movies" class="btn btn-primary" role="button">See List of Movie Images</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(const book of books) { %>
+                <tr>
+                    <td>
+                        <img src="/public/images/<%= book.image%>" height="50" width="50">
+                    </td>
+                    <td><%=book.title %></td>
+                    <td><%=utils.dollar.format(book.price) %></td>
+                    <td><%=book.description %></td>
+                    <td><a href="/admin/update?_id=<%=book._id%>"class="btn btn-primary"role="button">EDIT</a></td>
+                    <td>
+                        <form action="/admin/delete"method="POST">
+                            <input type="hidden" name="_id" value="<%=book._id%>">
+                            <button type="submit" class="btn btn-danger">DEL</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <% include ../partials/scripts %>
+  </body>
+</html>
